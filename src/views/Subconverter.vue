@@ -653,7 +653,7 @@ export default {
 
       this.$axios
         .post(shortUrlBackend, data, {
-          header: {
+          headers: {
             "Content-Type": "application/form-data; charset=utf-8",
           },
         })

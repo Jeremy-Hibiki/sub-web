@@ -1,9 +1,7 @@
 import path from "path";
 import { defineConfig } from "vite";
-import { createVuePlugin } from "vite-plugin-vue2";
+import vue from "@vitejs/plugin-vue2";
 import ViteRequireContext from "@originjs/vite-plugin-require-context";
-import envCompatible from "vite-plugin-env-compatible";
-import { createHtmlPlugin } from "vite-plugin-html";
 import { viteCommonjs } from "@originjs/vite-plugin-commonjs";
 import svgLoader from "vite-svg-loader";
 import createSvgSpritePlugin from "vite-plugin-svg-sprite";
@@ -21,20 +19,12 @@ export default defineConfig({
         replacement: path.resolve(__dirname, "src"),
       },
     ],
-    extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"],
+    extensions: [".mjs", ".js", ".ts", ".json", ".vue"],
   },
   plugins: [
-    createVuePlugin({ jsx: true }),
+    vue(),
     ViteRequireContext(),
     viteCommonjs(),
-    envCompatible(),
-    createHtmlPlugin({
-      inject: {
-        data: {
-          title: "sub-web",
-        },
-      },
-    }),
     svgLoader(),
     createSvgSpritePlugin({
       include: path.resolve(__dirname, "src/icons"),

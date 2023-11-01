@@ -4,7 +4,6 @@ import router from "./router";
 
 import "@/plugins/element-ui";
 import "@/plugins/clipboard";
-import "@/plugins/base64";
 import "@/plugins/particles";
 import "@/plugins/axios";
 import "@/plugins/device";
